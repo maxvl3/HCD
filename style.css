@@ -62,7 +62,7 @@ main ul {
   list-style: none;
   display: flex;
   gap: 20px;
-  overflow-x: auto;
+  overflow-x: scroll;
 }
 
 main ul::-webkit-scrollbar {
