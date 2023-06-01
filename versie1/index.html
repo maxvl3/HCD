@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foto bewerken</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <input type="file" id="upload-input">
+        <div id="image-container">
+            <img id="uploaded-image" src="#" alt="Geüploade foto">
+        </div>
+    </header>
+
+    <main>
+        <ul class="tools">
+            <li id="blur"><p>Blur</p></li>
+            <li id="opacity"><p>Opacity</p></li>
+            <li id="zoom"><p>Zoom</p></li>
+            <li id="border"><p>Border</p></li>
+        </ul>
+    </main>
+
+    <div id="blur-buttons" class="showButtons">
+        <div id="decrease-blur"><img src="images/minus-solid.svg" alt=""></div>
+        <div id="check"><img src="images/check-solid.svg" alt=""></div>
+        <div id="increase-blur"><img src="images/plus-solid (2).svg" alt=""></div>
+    </div>
+
+    <div id="opacity-buttons" class="showButtons">
+        <div id="decrease-opacity"><img src="images/minus-solid.svg" alt=""></div>
+        <div id="check-opacity"><img src="images/check-solid.svg" alt=""></div>
+        <div id="increase-opacity"><img src="images/plus-solid (2).svg" alt=""></div>
+    </div>
+
+    <div id="zoom-buttons" class="showButtons">
+        <div id="decrease-zoom"><img src="images/minus-solid.svg" alt=""></div>
+        <div id="check-zoom"><img src="images/check-solid.svg" alt=""></div>
+        <div id="increase-zoom"><img src="images/plus-solid (2).svg" alt=""></div>
+    </div>
+
+    <div id="border-buttons" class="showButtons">
+        <div id="decrease-border"><img src="images/minus-solid.svg" alt=""></div>
+        <div id="check-border"><img src="images/check-solid.svg" alt=""></div>
+        <div id="increase-border"><img src="images/plus-solid (2).svg" alt=""></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

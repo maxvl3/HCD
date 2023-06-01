@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap");
+
+*,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+
+:root {
+  --donkerblauw: #025bee;
+  --lichtblauw: #cbdaef;
+  --wit: white;
+}
+
+body{
+    background-color: var(--lichtblauw);
+}
+
+header {
+  background-color: var(--lichtblauw);
+  width: 100%;
+  height: auto;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+header input {
+  color: transparent;
+}
+header input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+header input::before {
+  content: "Selecteer foto";
+  color: var(--wit);
+  background-color: var(--donkerblauw);
+  display: inline-block;
+  padding: 15px 20px;
+  font-size: 28px;
+}
+
+
+
+
+main {
+  background-color: var(--wit);
+  padding: 30px 0px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+main ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll;
+}
+
+main ul::-webkit-scrollbar {
+  display: none;
+}
+
+main ul li {
+  background-color: var(--lichtblauw);
+  flex-shrink: 0;
+  width: 125px;
+  height: 125px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+main ul li:nth-of-type(1){
+    margin-left: 30px;
+}
+
+main ul li:nth-of-type(4){
+    margin-right: 60px;
+}
+
+main ul li p {
+  text-align: center;
+  color: var(--donkerblauw);
+  font-size: 18px;
+}
+
+#image-container{
+    display: none;
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border: 5px solid var(--wit);
+    background-color: var(--wit);
+}
+
+header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+.showButtons{
+    position: fixed;
+    bottom: 0;
+    height: 185px;
+    width: 100vw;
+    display: flex;
+    transform: translateY(100%);
+    transition: 1s;
+}
+
+.showButtons div{
+    background-color: var(--donkerblauw);
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.showButtons div:nth-of-type(2){
+    background-color: var(--wit);
+}
+
+.showButtons div img{
+    width: 40px;
+}
+
+.active{
+    transform: translateY(0) !important;
+    transition: 1s;
+}
