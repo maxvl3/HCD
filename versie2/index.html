@@ -15,10 +15,10 @@
     <input type="file" id="upload" accept="image/*" />
 
     <div class="image-section">
-        <button>Save</button>
-        <div class="image-container">
-            <img id="uploaded-image" src="#" alt="" />
-        </div>
+      <button id="save-button">Save</button>
+      <div class="image-container">
+        <img id="uploaded-image" src="#" alt="" />
+      </div>
     </div>
 
     <div class="tools-section">
@@ -31,32 +31,60 @@
           <i class="fa-solid fa-magnifying-glass"></i>
           <p>Zoom</p>
         </li>
-        <li id="rotate">
+        <li id="rotate" onclick="toggleRotate()">
           <i class="fa-solid fa-rotate"></i>
           <p>Rotate</p>
         </li>
-        <li id="filter">
-          <i class="fa-solid fa-brush"></i>
-          <p>Filter</p>
+        <li id="contrast" onclick="toggleContrast()">
+          <i class="fa-solid fa-circle-half-stroke"></i>
+          <p>Contrast</p>
+        </li>
+        <li id="brightness" onclick="toggleBrightness()">
+          <i class="fa-solid fa-sun"></i>
+          <p>Brightness</p>
         </li>
       </ul>
     </div>
 
     <div class="ratio-container edit-container">
-        <p>Ratio</p>
-        <button onclick="toggleRatio()"><i class="fa-solid fa-check"></i></button>
-        <ul>
-            <li onclick="changeRatio916()">9/16</li>
-            <li onclick="changeRatio11()">1/1</li>
-            <li onclick="changeRatio43()">4/3</li>
-            <li onclick="changeRatio169()">16/9</li>
-        </ul>
+      <p>Ratio</p>
+      <button onclick="toggleRatio()"><i class="fa-solid fa-check"></i></button>
+      <ul>
+        <li onclick="changeRatio916()">9/16</li>
+        <li onclick="changeRatio11()">1/1</li>
+        <li onclick="changeRatio43()">4/3</li>
+        <li onclick="changeRatio169()">16/9</li>
+      </ul>
     </div>
 
     <div class="zoom-container edit-container">
-        <p>Zoom</p>
-        <button onclick="toggleZoom()"><i class="fa-solid fa-check"></i></button>
-        <input type="range" id="zoomRange" class="range">
+      <p>Zoom</p>
+      <button onclick="toggleZoom()"><i class="fa-solid fa-check"></i></button>
+      <input type="range" id="zoomRange" class="range" />
+    </div>
+
+    <div class="rotate-container edit-container">
+      <p>Rotate</p>
+      <button onclick="toggleRotate()">
+        <i class="fa-solid fa-check"></i>
+      </button>
+      <input type="range" id="rotateRange" class="range" />
+    </div>
+
+    <div class="contrast-container edit-container">
+      <p>Contrast</p>
+      <button onclick="toggleContrast()">
+        <i class="fa-solid fa-check"></i>
+      </button>
+      <input type="range" id="contrastRange" class="range" />
+    </div>
+
+    <div class="brightness-container edit-container">
+      <p>Brightness</p>
+      <button onclick="toggleBrightness()">
+        <i class="fa-solid fa-check"></i>
+      </button>
+      <input type="range" id="brightnessRange" class="range" />
     </div>
 
     <script src="script.js"></script>
