@@ -1,43 +1,31 @@
-// Haal de elementen op
-const uploadInput = document.getElementById('upload');
-const imageSection = document.querySelector('.image-section');
-const toolsSection = document.querySelector('.tools-section');
-const imageContainer = document.querySelector('.image-container');
-const uploadedImage = document.getElementById('uploaded-image');
+const uploadInput = document.getElementById("upload");
+const imageSection = document.querySelector(".image-section");
+const toolsSection = document.querySelector(".tools-section");
+const imageContainer = document.querySelector(".image-container");
+const uploadedImage = document.getElementById("uploaded-image");
 
-// Verberg de imageSection en toolsSection
-imageSection.style.visibility = 'hidden';
-toolsSection.style.display = 'none';
+imageSection.style.visibility = "hidden";
+toolsSection.style.display = "none";
 
-// Voeg een eventlistener toe om het uploaden van de afbeelding te detecteren
-uploadInput.addEventListener('change', function(event) {
-
-  // Controleer of er een afbeelding is geselecteerd
+uploadInput.addEventListener("change", function (event) {
   if (event.target.files && event.target.files[0]) {
     const reader = new FileReader();
 
-    // Wanneer de afbeelding is geladen, update de src van het img element
-    reader.onload = function(e) {
+    reader.onload = function (e) {
       uploadedImage.src = e.target.result;
     };
 
-    // Lees de afbeelding als een DataURL
     reader.readAsDataURL(event.target.files[0]);
 
-    // Toon de imageSection en toolsSection
-    imageSection.style.visibility = 'visible';
-    toolsSection.style.display = 'block';
+    imageSection.style.visibility = "visible";
+    toolsSection.style.display = "block";
 
-    // Verberg de upload knop
-    uploadInput.style.display = 'none';
+    uploadInput.style.display = "none";
   }
 });
 
-
-
-
 function toggleRatio() {
-  const ratioElement = document.querySelector('.ratio-container');
+  const ratioElement = document.querySelector(".ratio-container");
   ratioElement.classList.toggle("active");
 }
 
@@ -61,149 +49,101 @@ function changeRatio169() {
   imageContainer.classList.remove("aspect11", "aspect43", "aspect916");
 }
 
-
-
-
-
-
 function toggleZoom() {
-  const zoomElement = document.querySelector('.zoom-container');
+  const zoomElement = document.querySelector(".zoom-container");
   zoomElement.classList.toggle("active");
 }
 
-// Functie om de zoom van de afbeelding aan te passen
 function adjustZoom() {
-  var zoomRange = document.getElementById("zoomRange"); // Range slider element
+  var zoomRange = document.getElementById("zoomRange");
 
-  var zoomValue = zoomRange.value; // Waarde van de range slider
+  var zoomValue = zoomRange.value;
 
-  var scale = 1 + (zoomValue / 100); // Bereken de schaalwaarde
+  var scale = 1 + zoomValue / 100;
 
-  uploadedImage.style.transform = "scale(" + scale + ")"; // Pas de zoom van de afbeelding aan
+  uploadedImage.style.transform = "scale(" + scale + ")";
 }
 
-// Event listener voor het wijzigen van de range slider
 var zoomRange = document.getElementById("zoomRange");
 zoomRange.addEventListener("input", adjustZoom);
 
-// Stel de standaardwaarde van de range slider in op het minimale zoomniveau (0)
 zoomRange.value = 0;
-adjustZoom(); // Pas de zoom van de afbeelding toe op basis van de standaardwaarde
-
-
-
-
-
-
-
-
+adjustZoom();
 
 function toggleRotate() {
-  const rotateElement = document.querySelector('.rotate-container');
+  const rotateElement = document.querySelector(".rotate-container");
   rotateElement.classList.toggle("active");
 }
 
-// Functie om de rotatie van de afbeelding aan te passen
 function adjustRotation() {
-  var rotateRange = document.getElementById("rotateRange"); // Range slider element
+  var rotateRange = document.getElementById("rotateRange");
 
-  var rotationValue = rotateRange.value; // Waarde van de range slider
+  var rotationValue = rotateRange.value;
 
-  // Bereken de rotatie in graden op basis van de waarde van de range slider
   var rotationDegrees = (rotationValue - 50) * 3.6;
 
-  uploadedImage.style.transform = "rotate(" + rotationDegrees + "deg)"; // Pas de rotatie van de afbeelding aan
+  uploadedImage.style.transform = "rotate(" + rotationDegrees + "deg)";
 }
 
-// Event listener voor het wijzigen van de range slider
 var rotateRange = document.getElementById("rotateRange");
 rotateRange.addEventListener("input", adjustRotation);
 
-// Stel de standaardwaarde van de range slider in op het midden
 rotateRange.value = 50;
-adjustRotation(); // Pas de rotatie van de afbeelding toe op basis van de standaardwaarde
-
-
-
-
-
-
-
+adjustRotation();
 
 function toggleContrast() {
-  const contrastElement = document.querySelector('.contrast-container');
+  const contrastElement = document.querySelector(".contrast-container");
   contrastElement.classList.toggle("active");
 }
 
-// Functie om het contrast van de afbeelding aan te passen
 function adjustContrast() {
-  var contrastRange = document.getElementById("contrastRange"); // Range slider element
+  var contrastRange = document.getElementById("contrastRange");
 
-  var contrastValue = contrastRange.value; // Waarde van de range slider
+  var contrastValue = contrastRange.value;
 
-  // Bereken de contrastwaarde op basis van de waarde van de range slider
   var contrast = ((contrastValue - 50) / 50) * 100 + 100;
 
-  uploadedImage.style.filter = "contrast(" + contrast + "%)"; // Pas het contrast van de afbeelding aan
+  uploadedImage.style.filter = "contrast(" + contrast + "%)";
 }
 
-// Event listener voor het wijzigen van de range slider
 var contrastRange = document.getElementById("contrastRange");
 contrastRange.addEventListener("input", adjustContrast);
 
-// Stel de standaardwaarde van de range slider in het midden
 contrastRange.value = 50;
-adjustContrast(); // Pas het contrast van de afbeelding toe op basis van de standaardwaarde
-
-
-
-
-
-
+adjustContrast();
 
 function toggleBrightness() {
-  const brightnessElement = document.querySelector('.brightness-container');
+  const brightnessElement = document.querySelector(".brightness-container");
   brightnessElement.classList.toggle("active");
 }
 
-// Functie om de helderheid van de afbeelding aan te passen
 function adjustBrightness() {
-  var brightnessRange = document.getElementById("brightnessRange"); // Range slider element
+  var brightnessRange = document.getElementById("brightnessRange");
 
-  var brightnessValue = brightnessRange.value; // Waarde van de range slider
+  var brightnessValue = brightnessRange.value;
 
-  // Bereken de helderheid op basis van de waarde van de range slider
   var brightness = ((brightnessValue - 50) / 50) * 100 + 100;
 
-  uploadedImage.style.filter = "brightness(" + brightness + "%)"; // Pas de helderheid van de afbeelding aan
+  uploadedImage.style.filter = "brightness(" + brightness + "%)";
 }
 
-// Event listener voor het wijzigen van de range slider
 var brightnessRange = document.getElementById("brightnessRange");
 brightnessRange.addEventListener("input", adjustBrightness);
 
-// Stel de standaardwaarde van de range slider in het midden
 brightnessRange.value = 50;
-adjustBrightness(); // Pas de helderheid van de afbeelding toe op basis van de standaardwaarde
+adjustBrightness();
 
+const saveButton = document.getElementById("save-button");
 
-  // Vind de Save knop op basis van het ID
-  const saveButton = document.getElementById("save-button");
+saveButton.addEventListener("click", function () {
+  const imageUrl = "images/test.jpeg";
 
-  // Voeg een klikgebeurtenisluisteraar toe aan de knop
-  saveButton.addEventListener("click", function() {
-    // Verkrijg de afbeeldings-URL
-    const imageUrl = "images/test.jpeg";
+  const link = document.createElement("a");
+  link.href = imageUrl;
+  link.download = "test.jpeg";
 
-    // Maak een tijdelijke ankerlink
-    const link = document.createElement("a");
-    link.href = imageUrl;
-    link.download = "test.jpeg";
+  document.body.appendChild(link);
+  link.click();
 
-    // Voeg de ankerlink toe aan het document en simuleer een klik
-    document.body.appendChild(link);
-    link.click();
-
-    // Verwijder de ankerlink uit het document
-    document.body.removeChild(link);
-  });
+  document.body.removeChild(link);
+});
